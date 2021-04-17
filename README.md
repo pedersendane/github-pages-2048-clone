@@ -2,6 +2,7 @@
 
 Original Repo found here: http://gabrielecirulli.github.io/2048/
 
+Working demo found here: https://pedersendane.github.io/github-pages-2048-clone/
 
 # Disclaimer
 **I am not taking credit for creating this from the ground up.**
