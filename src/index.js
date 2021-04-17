@@ -12,4 +12,6 @@ ReactDOM.render(
   document.getElementById('boardDiv')
 );
 
+//run 'yarn run deploy' to deploy changes to website
+
 
