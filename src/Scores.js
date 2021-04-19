@@ -9,8 +9,8 @@ export function GetScores() {
 
     const [highScore, highScores] = useState('');
 
-    const url = 'http://localhost:8000/high-score';
-
+    //const url = 'http://highscore-api.herokuapp.com/high-score';
+    const url = 'http://127.0.0.1:8000/high-score';
     useEffect(() => {
         getHighScores();
     }, []);
@@ -18,6 +18,7 @@ export function GetScores() {
     const getHighScores = () => {
         axios.get(url)
             .then((response) => {
+                console.log(response);
                 const allScores = response.data;
                 highScores(allScores)
             })
