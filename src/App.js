@@ -103,16 +103,13 @@ export default class BoardView extends React.Component {
     
     return (
       <React.Fragment>
-        <div className='scoreboard'><h2 id='score'>Score: {score}</h2></div>
+        <div className='scoreboard row'><h2 id='score'>Score: {score}</h2></div>
       <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1">
-        {cells}
+          {cells}
           {tiles}
           <GameEndOverlay board={this.state.board} onRestart={this.restartGame.bind(this)} />
-          
         </div>
-        
-      </React.Fragment>
-      
+        </React.Fragment>
     );
   }
 };
@@ -130,8 +127,9 @@ var GameEndOverlay = ({board, onRestart}) => {
   }
   return (
     <div className='overlay'>
+      <div id='postMessage'></div>
       {contents}
-      <button className="tryAgain" onClick={onRestart} onTouchEnd={onRestart}>Try again</button>
+      <button className="tryAgain" onClick={onRestart} onTouchEnd={onRestart}>Play again</button>
     </div>
   );
 };

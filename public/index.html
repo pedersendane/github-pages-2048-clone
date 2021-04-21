@@ -1,40 +1,34 @@
-
 <html>
+
 <head>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 </head>
 
 <body>
+  <div id="boardDiv"></div>
   <div class="row">
-    <div class="col-md-4" id="highscoreDiv"></div>
-    <div class="col-md-7" id="boardDiv"></div>
-    <div class="col-md-12" id="aboutDiv">
-      <h5 >
-        Built with React, JSX, SASS, Node.js, MongoDB, Heroku, and Atlas.
-        <br />
-        Inspired by Gabriele Cirullis'gtrc <a href="http://gabrielecirulli.github.io/2048/">2048</a>
-      </h5>
-    </div>
+    <div class="col-md-12" id="highscoreDiv"></div>
+
   </div>
   <footer>
-  <script src="https://fb.me/react-15.0.1.min.js"></script>
-  <script src="https://fb.me/react-dom-15.0.1.min.js"></script>
-  <script>
-    function zoomOutMobile() {
-  var viewport = document.querySelector('meta[name="viewport"]');
+    <script src="https://fb.me/react-15.0.1.min.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.min.js"></script>
+    <script>
+      function zoomOutMobile() {
+        var viewport = document.querySelector('meta[name="viewport"]');
 
-  if ( viewport ) {
-    viewport.content = "initial-scale=0.1";
-    viewport.content = "width=600";
-  }
-}
+        if (viewport) {
+          viewport.content = "initial-scale=0.1";
+          viewport.content = "width=600";
+        }
+      }
+      zoomOutMobile();
 
-zoomOutMobile();
-  </script>
-</footer>
+    </script>
+  </footer>
 </body>
-</html>
 
+</html>
