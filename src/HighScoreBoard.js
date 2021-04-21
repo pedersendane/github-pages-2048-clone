@@ -7,6 +7,7 @@ export default function HighScoreBoard(props) {
             return (
                 highScore
                     .sort((a, b) => (a.score < b.score) ? 1 : -1)
+                    .slice(0,20)
                     .map((score, index) => {
                     return (
                         <div className='high-score' key={score.id}>
