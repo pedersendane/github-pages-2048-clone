@@ -2,21 +2,26 @@ import React, {
     useState,
     useEffect
 } from 'react'
-import axios from 'axios'
+
+import axios from 'axios';
 import HighScoreBoard from './HighScoreBoard'
 
 export function GetScores() {
 
     const [highScore, highScores] = useState('');
 
-    //const url = 'http://highscore-api.herokuapp.com/high-score';
-    const url = 'http://127.0.0.1:8000/high-score';
+    const options = {
+        method: 'get',
+        //url: 'http://localhost:8000/scores',
+        url: 'https://highscore-api.herokuapp.com/scores',
+    }
+    
     useEffect(() => {
         getHighScores();
     }, []);
 
     const getHighScores = () => {
-        axios.get(url)
+        axios(options)
             .then((response) => {
                 console.log(response);
                 const allScores = response.data;
@@ -27,19 +32,4 @@ export function GetScores() {
     return ( < HighScoreBoard highScore={highScore}/>)
 }
 
-export function PostHighScore(score) {
-    const options = {
-        method: 'post',
-        url: 'http://localhost:8000/new-high-score',
-        params: {
-          score: parseInt(score),
-        }
-      };
-    axios(options)
-        .then((result) => {
-            console.log(result);
-            return true;
-        }).catch((error) => {
-            console.log(error)
-        })
-}
+

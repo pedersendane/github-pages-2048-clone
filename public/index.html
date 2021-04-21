@@ -1,20 +1,26 @@
 <html>
-  <head>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  </head>
-  <body>
-    <div class="text">
-      <p>
-        This is a clone of <a href="http://gabrielecirulli.github.io/2048/">2048</a> with an added scoreboard.
-        It's implemented using <a href="http://facebook.github.io/react/index.html">React</a>
-        + <a href="http://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a>
-        and <a href="http://sass-lang.com/">SASS</a> for the front-end and <a href="https://nodejs.org/en/docs/">Node.js</a> for the scoreboard.
-      </p>
+
+<head>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-md-4" id="highscoreDiv"></div>
+    <div class="col-md-4" id="boardDiv"></div>
+    <div class="col-md-3" id="aboutDiv">
+      <h5 >
+        Built with React, JSX, SASS, Node.js, MongoDB, Heroku, and Atlas.
+        <br />
+        Inspired by Gabriele Cirullis'gtrc <a href="http://gabrielecirulli.github.io/2048/">2048</a>
+      </h5>
     </div>
-    <div id="boardDiv" />
-    <script src="https://fb.me/react-15.0.1.min.js"></script>
-    <script src="https://fb.me/react-dom-15.0.1.min.js"></script>
-  
-  </body>
+  </div>
+  <script src="https://fb.me/react-15.0.1.min.js"></script>
+  <script src="https://fb.me/react-dom-15.0.1.min.js"></script>
+
+</body>
+
 </html>

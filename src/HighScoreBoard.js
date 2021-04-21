@@ -1,13 +1,16 @@
 import React from 'react';
+import BoardView from './App';
 export default function HighScoreBoard(props) {
     const highScore = (props) => {
         const { highScore } = props;
         if (highScore.length > 0) {
             return (
-                highScore.map((score) => {
+                highScore
+                    .sort((a, b) => (a.score < b.score) ? 1 : -1)
+                    .map((score, index) => {
                     return (
                         <div className='high-score' key={score.id}>
-                            <h3 className='score'>High Score: <span id='high-score'>{score.score}</span></h3>
+                            <h5 className='score'>High Score {index + 1}: <span className="userScore">{score.score}</span> by <span className={`userName ${score.id}`}>{score.name}</span></h5>
                         </div>
                     )
                 })
@@ -18,6 +21,6 @@ export default function HighScoreBoard(props) {
 
     }
     return (<>
-    {highScore(props)}
+        {highScore(props)}
     </>)
 }

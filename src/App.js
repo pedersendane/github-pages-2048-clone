@@ -1,5 +1,6 @@
 import React from 'react';
-import { PostHighScore } from './Scores';
+import HighScoreForm from './HighScoreForm';
+import { GetScores, PostHighScore } from './Scores';
 
 export default class BoardView extends React.Component {
   constructor(props) {
@@ -105,26 +106,24 @@ export default class BoardView extends React.Component {
         <div className='scoreboard'><h2 id='score'>Score: {score}</h2></div>
       <div className='board' onTouchStart={this.handleTouchStart.bind(this)} onTouchEnd={this.handleTouchEnd.bind(this)} tabIndex="1">
         {cells}
-        {tiles}
-        <GameEndOverlay board={this.state.board} onRestart={this.restartGame.bind(this)} />
+          {tiles}
+          <GameEndOverlay board={this.state.board} onRestart={this.restartGame.bind(this)} />
+          
         </div>
+        
       </React.Fragment>
+      
     );
   }
 };
 
+
 var GameEndOverlay = ({board, onRestart}) => {
   var contents = '';
    if (board.hasLost()) {
-     var htmlHighScore = document.getElementById('high-score').innerHTML;
-     var score = parseInt(board.score);
-     var highScore = parseInt(htmlHighScore);
-
-     if (score < highScore) {
-       contents = "Loser!"
-     } else {
-       contents = <button className='tryAgain' onClick={PostHighScore(score)}>Submit High Score!</button>
-     }
+      contents = <>
+                  <HighScoreForm score={board.score}/>
+                </>
   }
   if (!contents) {
     return null;
@@ -180,9 +179,6 @@ Board.prototype.moveLeft = function () {
         //console.log(this)     this will allow you to see what the board is doing 
         
         this.addScore(targetTile.value);
-
-        
-        
       }
       resultRow[target] = targetTile;
       this.won |= (targetTile.value === Infinity);
